@@ -10,7 +10,8 @@ const petsSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    price: String,
+    price: Number,
+    
     picture: {
       type: String,
       default: "will be uploaded soon"
