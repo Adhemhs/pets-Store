@@ -33,7 +33,7 @@ app.get('/get',(req,res)=>{
 });
 
 
-
+// add new pets: 
 app.post('/add', (req,res)=>{
   const newPets = new Pets({
     name: req.body.name,
@@ -50,6 +50,63 @@ app.post('/add', (req,res)=>{
   res.status(500);
 })
 })
+
+// get all pets:
+app.get("/get",(req,res)=> {
+  pets.find({}, (err,results)=>{
+    err ? console.log(err) : res.send(results);
+  })
+})
+
+
+// delete pet:
+
+app.delete('/delete/:id', (req,res)=>{
+  const id = req.params.id;
+  Pets.findByIdAndRemove(id).exec()
+  Pets.find({},(err,results)=>{
+    err? console.log(err) : res.send(results);
+  })
+});
+
+// update pet 
+ app.put("/update", (req,res)=>{
+  const id = req.body._id;
+  const name = req.body.name;
+  const age = req.body.age;
+  const price = req.body.price;
+  const picture = req.body.picture;
+  const description = req.body.description;
+
+  const test = () => {
+    if (id === undefined) {
+      return { name :name , age : age, price : price, picture : picture, description : description}
+    } else {
+      return { _id: id }
+    }
+  }
+
+  Pets.updateOne(test(), {
+    $set: {
+      name: name,
+      age: age,
+      price: price,
+      picture: picture,
+      description: description
+  } },
+
+  // upsert to check if pet's id exist to add new data to my db 
+     {upsert: true}, (err,results)=>{
+        err ? console.log(err) : console.log('updated');
+  }
+  )
+ })
+
+
+
+ 
+
+
 
 
 
