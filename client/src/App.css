@@ -1,3 +1,28 @@
 .App {
   text-align: center;
 }
+
+.header {
+  background-color: #282c34;
+  color: white
+}
+.navbar {
+ background-color: #282c34;
+  color: rgb(53, 52, 52);
+  background-color: rgb(144, 82, 32);
+}
+.navBarLink {
+  
+  color: rgb(53, 52, 52);
+  margin-block-end: auto;
+  padding-right:10%;
+  text-overflow: inherit;
+}
+
+/* .Auth-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 80vh;
+} */

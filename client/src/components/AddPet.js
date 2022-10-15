@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'
+import './addPet.css';
 
 
 function AddPet() {
@@ -48,7 +49,7 @@ function AddPet() {
     return (
 
         <form className="add-pet">
-            <label >pet's name:</label><br />
+            <label > pet's name:</label><br />
             <input type="text" placeholder="enter your pets name" onChange={onNameChange} /><br/>
             <label >pet's age</label><br/>
             <input type="number" placeholder='how old is ur pet ' onChange={onAgeChange} /><br />
@@ -58,7 +59,7 @@ function AddPet() {
             <input type="img" placeholder="load your pets image" onChange={onPicChange} /><br></br>
             <label >description</label><br />
             <input type="text" placeholder="describe ur pet" onChange={onDescriptionsChange} /><br></br>
-            <button className='button' onClick={savePets}> Add</button>
+            <button className='button' onClick={savePets}> Add </button>
 
         </form>
 

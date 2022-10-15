@@ -1,0 +1,23 @@
+
+
+
+
+
+ .btn {
+    margin-top: 10px;
+    color: blue;
+  }
+
+
+
+.button {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size:mediumblue;
+}
+
+.up {
+    display: inline-block;
+    padding: 5px 10px;
+    width: 100%;
+}

@@ -5,6 +5,8 @@ import App from './App';
 
 
 
+
+
 function LogIn(props) {
     const [usernames, setUsername] = useState("");
     const [passwords, setPassword] = useState("");
@@ -40,7 +42,7 @@ function LogIn(props) {
                         }}></input><br />
 
                     <button className='button' onClick={() => { return login() }}>Log in</button><br /><br /><br />
-                    <h3>if you don't have account you can signup first</h3>
+                    <h3>if you don't have account you can sign up first</h3>
                     <button className='button' onClick={() => { setSing(true) }}>signUp</button><br /><br /><br />
                 </div>
             </div>)

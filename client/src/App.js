@@ -3,6 +3,8 @@ import './App.css';
 import AddPet from './components/AddPet.js';
 import axios from 'axios';
 import Home from './components/MainPage.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { button } from 'react-bootstrap'
 
 
 
@@ -27,33 +29,36 @@ function App() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:3000/get').then(response=>{
+    axios.get('http://localhost:3000/get').then(response => {
       setData(response.data)
     })
   })
 
 
- return (
-    <div>
+  return (
+    <center>
+      <div>
 
-  
-<div className="header">
 
-<nav className="navbar">
-  {/* home page button */}
-  <i className="fa-solid fa-person-walking-luggage" id='logo'></i>
-  <div className="navBarLink" onClick={onHomeClick}><i className="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</div>
-  {/* add trips page button */}
-  <div className="navBarLink" onClick={onAddpetClick}><i className="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp;Add pets</div>
-</nav>
+        <div className="header">
 
-</div>
-{/* main page*/}
-{showMain && <Home data={data} setData={setData} />}
-{/* add pets page */}
-{showAddPets && <AddPet />}
+          <nav className="navbar">
+            {/* home page button */}
+            <i className="italic"></i>
+            <div className="navBarLink" onClick={onHomeClick}> <button className='button'>Home</button></div>
+            {/* add trips page button */}
+            <div className="navBarLink" onClick={onAddpetClick}><button className='button'>Add your pet </button></div>
+          </nav>
 
-</div>
+        </div>
+
+        {showMain && <Home data={data} setData={setData} />}
+        {showAddPets && <AddPet />}
+    
+      </div>
+    </center>
+
+
   )
 }
 

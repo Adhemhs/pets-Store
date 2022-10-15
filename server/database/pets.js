@@ -10,7 +10,7 @@ const petsSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    price: Number,
+    price: String,
     
     picture: {
       type: String,
