@@ -42,8 +42,11 @@ const Home = (props) => {
                         <input className="up" type="text" placeholder="pet's price " defaultValue={e.price} onChange={(e) => {
                             setPrice(e.target.value)
                         }}></input>
-                        <input className="up" type="text" placeholder="pet's picture" defaultValue={e.picture} onChange={(e) => {
+                        <input className="up" type="text" placeholder="upload the pic link here" defaultValue={e.picture} onChange={(e) => {
                             setPicture(e.target.value)
+                        }}></input>
+                         <input className="up" type="text" placeholder="tell us more about it" defaultValue={e.description} onChange={(e) => {
+                            setDescription(e.target.value)
                         }}></input>
                         <button className="button" onClick={() => {
                             setShowUpdate(false);
@@ -79,7 +82,6 @@ const Home = (props) => {
                         <div className="pet-container">
                             <h1>{e.name}</h1>
                             <img src={e.picture} title={e.name} alt={e.name} className="pet-img" />
-                            <h1>{e.title}</h1>
                             <h1>{e.age}</h1>
                             <h1>{e.price} TND</h1>
                             <h1>{e.description}</h1>
