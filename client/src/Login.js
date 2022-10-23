@@ -19,9 +19,9 @@ function LogIn(props) {
 
     }
     const login = () => {
-        axios.post('http://localhost:3000/user/login', newUser).then(response => {
-            setError(response.data.success)
-            console.log(response.data.success)
+        axios.post('http://localhost:3001/auth/login', newUser).then(response => {
+            setError(response.data.succes)
+            console.log(response.data.succes)
         })
             .catch(err => { console.log(err) });
     }

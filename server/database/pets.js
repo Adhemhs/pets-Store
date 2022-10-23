@@ -7,11 +7,11 @@ const petsSchema = new mongoose.Schema({
         required: true,
     },
     age: {
-        type: String,
+        type: Number,
         required: true
     },
    
-    price: String,
+    price: Number,
     
     picture: {
       type: String,

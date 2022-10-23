@@ -29,7 +29,7 @@ function App() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:3000/get').then(response => {
+    axios.get('http://localhost:3001/pet/all').then(response => {
       setData(response.data)
     })
   })
@@ -46,13 +46,14 @@ function App() {
             {/* home page button */}
             <i className="italic"></i>
             <div className="navBarLink" onClick={onHomeClick}> <button className='button'>Home</button></div>
-            {/* add trips page button */}
+            {/* add pets page button */}
             <div className="navBarLink" onClick={onAddpetClick}><button className='button'>Add your pet </button></div>
           </nav>
 
         </div>
 
         {showMain && <Home data={data} setData={setData} />}
+
         {showAddPets && <AddPet />}
     
       </div>

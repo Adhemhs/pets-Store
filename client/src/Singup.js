@@ -16,7 +16,7 @@ function SingUp() {
   }
    
   const hopIn = () => {
-    Axios.post('http://localhost:3000/user/signup', newUser).then(response=>{
+    Axios.post('http://localhost:3001/auth/signin', newUser).then(response=>{
       console.log(response)
     })
     .catch( err => {console.log(err) });

@@ -33,7 +33,7 @@ function AddPet() {
 
     const savePets = function (event) {
         event.preventDefault()
-        axios.post('http://localhost:3000/add', {
+        axios.post('http://localhost:3001/pet/add', {
             name: name,
             age: age,
             price: price,

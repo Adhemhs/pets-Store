@@ -5,7 +5,7 @@ import './mainPage.css';
 const Home = (props) => {
     // update pet,
     const [name, setPetName] = useState("");
-    const [age, setAge] = useState(0)
+    const [age, setAge] = useState()
     const [picture, setPicture] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState(0);
@@ -13,8 +13,8 @@ const Home = (props) => {
 
 
     const updatePet = (id) => {
-        axios.put(`http://localhost:3000/update/${id}`, {
-            name:name,
+        axios.put(`http://localhost:3001/pet/update/${id}`, {
+            name: name,
             id: id,
             age: age,
             price: price,
@@ -33,7 +33,7 @@ const Home = (props) => {
             return (
                 <center>
                     <div>
-                    <input className="up" type="text" placeholder="wanna change the pet name?" defaultValue={e.name} onChange={(e) => {
+                        <input className="up" type="text" placeholder="wanna change the pet name?" defaultValue={e.name} onChange={(e) => {
                             setPetName(e.target.value)
                         }}></input>
                         <input className="up" type="text" placeholder="your pet's age" defaultValue={e.age} onChange={(e) => {
@@ -45,7 +45,7 @@ const Home = (props) => {
                         <input className="up" type="text" placeholder="upload the pic link here" defaultValue={e.picture} onChange={(e) => {
                             setPicture(e.target.value)
                         }}></input>
-                         <input className="up" type="text" placeholder="tell us more about it" defaultValue={e.description} onChange={(e) => {
+                        <input className="up" type="text" placeholder="tell us more about it" defaultValue={e.description} onChange={(e) => {
                             setDescription(e.target.value)
                         }}></input>
                         <button className="button" onClick={() => {
@@ -65,7 +65,7 @@ const Home = (props) => {
     // delete pet
 
     const deletePet = (id) => {
-        axios.delete(`http://localhost:3000/delete/${id}`).then((response) => {
+        axios.delete(`http://localhost:3001/pet/delete/${id}`).then((response) => {
             console.log("pet deleted successfully ")
         });
     };
