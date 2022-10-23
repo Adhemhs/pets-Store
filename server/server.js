@@ -8,8 +8,6 @@ const SECRET_JWT_CODE = "AdhemIsSuffering";
 const mongoose = require("mongoose");
 const Pets = require("./database/pets");
 const User = require("./database/user");
-const { response } = require("express");
-// const db = require("./database/pets.js");
 
 const app = express();
 
@@ -33,15 +31,6 @@ mongoose.connect("mongodb://localhost:27017/pet-db,", {
   .catch((err) => {
     console.log(err);
   });
-// just testing get 
-   
-
-
-/*app.get('/get', (req, res) => {
-     res.json("hello world")
- } );  
- */
-
 
 // add new pets: 
 
@@ -81,9 +70,9 @@ app.delete('/delete/:id', (req, res) => {
 });
 
 // update pet 
-app.put('/update/:id',(req,res)=> {
+app.put('/update/:id', (req, res) => {
   console.log(req.params.id)
-  const { name, age, price, picture, description} = req.body;
+  const { name, age, price, picture, description } = req.body;
   const petsData = Pets.findOneAndUpdate(req.params.id, {
     name,
     age,
@@ -91,12 +80,12 @@ app.put('/update/:id',(req,res)=> {
     picture,
     description
   })
-  .then((data)=> res.status(200).json(data))
-  .catch((err)=> console.log(err))
+    .then((data) => res.status(200).json(data))
+    .catch((err) => console.log(err))
 
 
- })
- 
+})
+
 
 
 
@@ -105,17 +94,17 @@ app.post('/user/signup', (req, res) => {
     res.json({ succes: false, error: "send needed params" })
     return
   }
- const newUser = new User({
+  const newUser = new User({
     username: req.body.username,
     password: bcrypt.hashSync(req.body.password, 5),
   })
-   newUser.save().then((user) => {
+  newUser.save().then((user) => {
     const token = JsonWebToken.sign({ id: user._id, username: user.username }, SECRET_JWT_CODE)
     res.json({ succes: true, token: token })
   }).catch((err) => {
     res.json({ succes: false, error: err })
   });
-} );
+});
 
 app.post('/user/login', (req, res) => {
   if (!req.body.username || !req.body.password) {
